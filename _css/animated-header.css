@@ -1,0 +1,97 @@
+/****  NAVBAR ****/
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+#wrapper {
+	width: 100%;
+}
+
+#header{
+	float: left;
+	width: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 20;
+	color: rgb(29, 29, 35);
+}
+#header-inner {
+//*	width: 950px; **/
+	width:100%;
+	max-height: 16%;
+//*	height: 60px; **/
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 15px;
+}
+#header-inner-logo {
+	float: left;
+	line-height: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/**
+#header-inner-logo-icon {
+	float: left;
+	height: 60px;
+	width: 50px;
+	font-size: 40px;
+	text-align: center;
+}
+***/
+.NavContenu #logo{
+	display: flex;
+	top: 0.5%;
+	position: fixed;
+	left:1%;
+	max-width: 130px;
+}
+
+.NavContenu{
+	max-width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+#header-inner-logo-text {
+	float: left;
+	height: 60px;
+	font-size: 21px;
+/*	margin-left: 100px; */
+}
+#header-inner-logo-text span {
+	font-weight: 800;
+}
+
+#header-inner-nav {
+margin-right: 2px;
+}
+#header-inner-nav p {
+	background-color: rgba(182, 192, 203, 0.23);
+	font-size: 15px;
+	font-weight: bolder;
+	color: inherit;
+	text-decoration: none;
+	padding-left: 15px;
+	display: block;
+	float: left;
+	margin-left: 10px;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+	line-height: 35px;
+	padding-right: 15px;
+	margin-bottom: 0px;
+	margin-top: 12px;
+	border-radius: 4%;
+}
+#header-inner-nav p:hover {
+	color: rgba(255, 255, 255, 0.7);
+	background-color: hsla(225,13%,18%,1);
+	cursor:pointer;
+}

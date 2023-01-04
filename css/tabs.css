@@ -1,0 +1,914 @@
+
+
+body{
+    background-color: black;
+}
+
+/**** Scroll Indicator ***/
+
+/* Indicator Wrapper */
+.scroll-wrapper {
+    position: absolute;
+    z-index: 10!important;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: #afafaf;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+/* Progress Indicator - Initial Width to 0%; */
+#scrollIndicator {
+    position: absolute;
+    z-index: 10!important;
+    width: 0%;
+    height: 4px;
+    background: rgb(36,24,0);
+    background: linear-gradient(36deg, rgb(136, 117, 0) 0%, rgb(187, 137, 10) 35%, rgba(255,154,0,1) 100%);
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+/******* Carte PREZ ********/
+#base{
+    width: 100%;
+    height: 100%;
+    top:56px;
+    position: absolute;
+    z-index: 2;
+    animation: base 4s 1;
+    transition: 0.6s ease-in-out;
+}
+@keyframes base{0%{transform:translate3d(-10px,-100px,0)}100%{transform:translate3d(0,0,0)}}
+
+#txt1{
+    top:65px;
+    left: 0px;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    z-index: 3;
+    animation: txt11 6s 1;
+    transition:  0.9s ease-in-out;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+@keyframes txt11{0%{transform:translate3d(10px,200px,0)}100%{transform:translate3d(0,0,0)}
+    0%    { opacity: 0; }
+    20%   { opacity: 0; }
+    30%   { opacity: 1; }
+    50%   { opacity: 1; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+
+#txt2{
+    top:65px;
+    left: 0px;
+    right: 0px;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    z-index: 4;
+    animation: txt22 6s 1;
+    transition:  0.6s ease-in-out;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+@keyframes txt22 {0%{transform:translate3d(-10px,20px,0)}100%{transform:translate3d(0,0,0)}
+    0%    { opacity: 0; }
+    20%   { opacity: 0; }
+    80%   { opacity: 0; }
+    100%  { opacity: 1; }
+}
+
+#logoss{
+    top:66px;
+    left: 0px;
+    right: 0px;
+    padding: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    z-index: 4;
+    animation: logoss 11s 1;
+    transition:  1s ease-in-out;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+@keyframes logoss {
+    0%    { opacity: 0; }
+    10%    { opacity: 0; }
+    20%   { opacity: 0; }
+    50%   { opacity: 0; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+@media screen and (min-width: 425px) {
+    #txt1, #txt2, #logoss{
+        width: 55%;
+        height: auto;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    #txt1, #txt2, #logoss{
+        top: 70px;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    #txt1, #txt2, #logoss{
+    top: 80px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #txt1, #txt2, #logoss{
+        top: 140px;
+    }
+}
+
+@media screen and (min-width: 2000px){
+    #txt1, #txt2, #logoss{
+        top: 230px;
+    }
+}
+@media screen and (min-width: 2700px){
+    #txt1, #txt2, #logoss{
+        top: 330px;
+    }
+}
+
+
+/**** FX Curve Carte Prez ***
+#tab1::after{
+    transition:1s ease-in-out;
+    content: '';
+    z-index: 3;
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background-position: -140px;
+    background: radial-gradient(
+            circle farthest-side at 0 0,
+            rgba(255,255,255,0) 90%,
+            rgba(0, 25, 97, 0.88) 98%,
+            rgba(255,255,255,0) 100%
+    ) no-repeat;
+}
+
+#tab1:hover::after,
+#tab1:focus::after{
+    transition: background-position 1s;
+    background-position: 25px 0;
+}
+*/
+/**************************/
+
+/****** IMAGES TABS **********/
+.tab {
+    float: left;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.8s;
+}
+.tab img {
+    width: 100%;
+    height: 100%;
+    background-size: calc(100% + 50px);
+}
+.tab-headline {
+    position: absolute;
+    left: 49%;
+    top: 50%;
+    max-width: 55%;
+}
+.tab-headline p {
+    border: 4px solid rgba(255,255,255,1);
+    font-size: 2.5rem;
+    color: rgba(255,255,255,1);
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 300;
+    margin: 0px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    color: white;
+    background:
+            linear-gradient(90deg, #ae7033 50%,#000 0)
+            var(--_p,100%)/200% no-repeat;
+var(--.tab-headline,100%)/200% no-repeat;
+    -webkit-background-clip: text;
+ /*   background-clip: text; */
+    background-clip: border-box;
+    transition: .7s;
+}
+.tab-headline p:hover {
+    border: 4px solid rgba(55, 55, 55, 0.83);
+    cursor: pointer;
+    color: #373737;
+    transition: 0.6s;
+    --_p: 0%;
+}
+
+.tab-button{
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    background-color: #282b34;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+.tab-button a {
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.tab-button:hover .tab-button-icon{
+    background-color: #0093fd;
+}
+
+.tab-button:hover .tab-button-text{
+    background-color: #3D414E;
+}
+
+.tab-button-icon{
+    float: left;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    background-color: rgba(198, 114, 35, 0.89);
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+}
+
+.tab-button-icon a {
+    font-size: 25px;
+}
+
+.tab-button-text{
+    float: left;
+    height: 60px;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+}
+
+.tab-button-text a {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/********  TEST IMAGE MOV BACK HOVER **********/
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 9, 9, 0.76);
+    position: relative;
+    z-index: 3;
+}
+
+/*** Boutons Apropos etc ****/
+.overP{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 4;
+}
+/************************/
+
+#top-image {
+    background: url("../_assets/Card1/BaseAlt.png") -1em -1em;
+    position:relative ;
+    background-repeat: no-repeat;
+    width:100%;
+    z-index:0;
+    height:100%;
+    background-size: calc(100% + 50px);
+    animation: topi1 ease-in-out 0.6s;
+    animation-duration: 0.6s;
+    box-shadow: inset 0em 0em 10em 1.5em rgb(0, 0, 0);
+}
+@keyframes topi1 {
+    0%    { opacity: 1; }
+    10%    { opacity: 1; }
+    20%   { opacity: 1; }
+    50%   { opacity: 1; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+#top-image2 {
+    background:url("../_assets/Card1/pnb.jpg") -25px -25px;
+    background-repeat: no-repeat;
+    position: relative;
+    width:100%;
+    z-index:0;
+    height:100%;
+    background-size: calc(100% + 150px);
+    animation: topi2 ease-in-out 0.6s;
+    animation-duration: 0.6s;
+    box-shadow: inset 0em 0em 10em 1.5em rgb(0, 0, 0);
+}
+@keyframes topi2 {
+    0%    { opacity: 1; }
+    10%   { opacity: 1; }
+    20%   { opacity: 1; }
+    50%   { opacity: 1; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+#top-image3 {
+ /**   background:url('https://wallpaperaccess.com/full/622523.jpg') -25px -50px; **/
+    background:url("../_assets/Card1/Bluee.jpg") -25px -25px;
+    background-repeat: no-repeat;
+    position:relative ;
+    width:100%;
+    z-index:0;
+    height:100%;
+    background-size: calc(100% + 50px);
+    animation: topi3 ease-in-out 0.6s;
+    animation-duration: 0.6s;
+    box-shadow: inset 0em 0em 10em 1.5em rgb(0, 0, 0);
+}
+@keyframes topi3 {
+    0%    { opacity: 1; }
+    10%    { opacity: 1; }
+    20%   { opacity: 1; }
+    50%   { opacity: 1; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+#top-image4 {
+ /**   background:url('https://wallpaperaccess.com/full/622523.jpg') -25px -50px; **/
+    background:url("../_assets/Card1/TabAbout4 3.jpg") -25px -25px;
+    filter: brightness(60%);
+    background-repeat: no-repeat;
+    position:relative ;
+    top:0;
+    width:100%;
+    z-index:0;
+    height:100%;
+    background-size: calc(100% + 50px);
+    animation: topi4 ease-in-out 0.6s;
+    animation-duration: 0.6s;
+    box-shadow: inset 0em 0em 10em 1.5em rgb(0, 0, 0);
+}
+@keyframes topi4 {
+    0%    { opacity: 1; }
+    10%    { opacity: 1; }
+    20%   { opacity: 1; }
+    50%   { opacity: 1; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+/***************************************** TEST SLICE foireux ***********************************/
+.btn2{
+    position: absolute;
+    z-index: 12;
+    top: 20%;
+}
+
+.actif1{
+    visibility: hidden;
+    transition:1.6s ease-in-out!important;
+    animation: actif11 1.6s !important;
+}
+@keyframes actif11{100%{transform:translate3d(0px,-400px,0)} /********* openTabs vers le haut *********/
+    100%  { opacity: 0; }
+    90%  { opacity: 0; }
+    80%   { opacity: 0; }
+    50%   { opacity: 1; }
+    20%   { opacity: 1; }
+    10%    { opacity: 1; }
+    0%    { opacity: 1; }
+}
+
+.actif2{
+    visibility: hidden;
+    transition:1.6s ease-in-out !important;
+    animation: actif22 1.6s !important;
+}
+@keyframes actif22{
+    100%{transform:translate3d(0px,400px,0)}
+    100%  { opacity: 0; }
+    90%  { opacity: 0; }
+    80%   { opacity: 0; }
+    50%   { opacity: 1; }
+    20%   { opacity: 1; }
+    10%    { opacity: 1; }
+    0%    { opacity: 1; }
+}
+
+#imgHaut{
+    width: 100%;
+    height: 100%;
+    animation: imgho 0.9s ease-in-out;
+    transition: height 0.9s ease-in-out;
+}
+@keyframes imgho{0%{transform:translate3d(-10px,-200px,0)}100% {transform:translate3d(0,0,0)}
+    0%    { opacity: 0; }
+    10%    { opacity: 0; }
+    20%   { opacity: 0; }
+    50%   { opacity: 0; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+#imgBas{
+    width: 100%;
+    height: 100%;
+    animation: imgba 0.9s ease-in-out;
+    transition: height 0.9s ease-in-out;
+}
+@keyframes imgba{0%{transform:translate3d(10px,
+200px,0)}100%{transform:translate3d(0,0,0)}
+    0%    { opacity: 0; }
+    10%    { opacity: 0; }
+    20%   { opacity: 0; }
+    50%   { opacity: 0; }
+    80%   { opacity: 1; }
+    100%  { opacity: 1; }
+}
+
+.hide{
+    position:absolute;
+    z-index: 0;
+    opacity: 0%;
+    animation: hidee 0.9s ease-in-out;
+    animation-duration: 0.9s;
+    transition: 0.9s;
+}
+@keyframes hidee{
+    0%    { opacity: 1; }
+    10%    { opacity: 1; }
+    20%   { opacity: 1; }
+    50%   { opacity: 0; }
+    80%   { opacity: 0; }
+    100%  { opacity: 0; }
+}
+/***** Main Tab About   ******/
+#tabAbout{
+    position: relative;
+    z-index: -5;
+    width: 100%;
+    height: 200%;
+/*    background: rgb(19,15,6);
+    background: linear-gradient(36deg, rgba(19,15,6,1) 0%, rgba(141,141,141,1) 35%, rgba(128,128,128,1) 74%, rgba(78,78,78,1) 92%); */
+/*    background: rgb(92,114,124);
+    background: linear-gradient(0deg, rgba(92,114,124,1) 0%, rgba(65,81,96,1) 30%, rgba(51,53,59,1) 71%);
+ */
+}
+
+#boutonTabs{
+    background-color: transparent;
+    border-style:hidden;
+    position: absolute;
+    top: 75%;
+    z-index: 30;
+    animation-duration: 1.2s;
+    transition: 1.2s;
+}
+
+.boutonTabs2{
+    background-color: transparent;
+    border-style:hidden;
+    z-index: 30;
+    animation-duration: 1.2s;
+    transition: 1.2s;
+    opacity: 50%;
+    top: 90% !important;
+    left: 50%;
+}
+.boutonTabs2 p{
+    animation-duration: 1.2s;
+    transition: 1.2s;
+    font-size: 15px;
+    background-color: #7a7a7a;
+    color: white;
+}
+
+.boutonTabs2 p:hover{
+    background-color: #808080;
+    color: white;
+}
+
+#imagee{
+    width: 100%;
+    height: 50%;
+}
+
+#imagee img{
+    box-shadow: inset 0em 0em 10em 1.5em rgb(0, 0, 0);
+}
+
+#imagee p{
+    top: 20%;
+    max-width: 75%;
+    position: fixed;
+    left: 11%;
+    color: #10100f;
+    background-color: rgba(155, 158, 153, 0.74);
+    box-shadow: rgba(22, 22, 22, 0.63) 6px 8px 8px;
+    border-radius: 5px;
+    max-font-size: 5px;
+}
+/******* Rzsponsive  OpenTabs ABOUT *************/
+@media only screen and (max-width: 600px){
+    #imagee p{
+        top: 25%;
+    }
+    .boutonTabs2{
+        left:50%;
+        right: 50%;
+        position: absolute;
+        bottom: -50px;
+    }
+    .boutonTabs2 p{
+        font-size: 4px !important;
+        border: 0px solid rgba(255,255,255,1);
+    }
+    .boutonTabs2 p:hover{
+        font-size: 4px !important;
+        border: 1px solid rgba(255,255,255,1);
+    }
+}
+
+#nohide{
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    font-size: 2vw;
+    width: 100%;
+    text-align: center;
+    animation-duration: 1.2s;
+    transition: 1.2s;
+    z-index: -1;
+}
+/**** 1er carré ***/
+#cont1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: absolute;
+    z-index: -1;
+    top: -20px;
+    left: 30px;
+    background-color: rgba(235, 230, 215, 0.89);
+    box-shadow: rgba(22, 22, 22, 0.63) 3px 4px 8px;
+    border: 2px solid #a35100;
+    width: 20%;
+    height: 85%;
+    border-radius: 20px;
+}
+
+#cont1 img{
+    background-position: center;
+    border: none !important;
+}
+
+#contPhoto{
+    background: url("../_assets/avat.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    box-shadow: rgba(255, 255, 255, 0) 0px 1px 0px!important;
+    min-width: 3.5em;
+    min-height: 3.5em;
+    max-width: 3.8em;
+    max-height:3.8em;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    border: hidden !important;
+}
+
+
+#contBio1{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 100%;
+/*    border: 1px solid grey; */
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#TextBio{
+    margin-top: 0px;
+    font-size: 0.8vw;
+    text-align: center;
+
+}
+
+#TextBio2{
+    font-size: 0.7vw;
+    text-align: center;
+}
+
+#btnCV{
+    display: flex;
+    justify-content: center;
+}
+
+#boutonDL{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    width: 70%;
+
+}
+
+#contBio1 button{
+    font-size: 1vw;
+}
+@media only screen and (max-width: 600px){
+
+    #contPhoto{
+        width: 50%;
+        height: 50%;
+    margin-top: 30px;
+    }
+}
+/***  2eme carré - Central  **/
+#cont4{
+    position: absolute;
+    border-radius: 40px;
+    background-color: rgba(0, 0, 0, 0.19);
+    color:black;
+    border: 4px solid #505050;
+    box-shadow: rgba(22, 22, 22, 0.63) 4px 6px 10px;
+    top: 15%;
+    left: 20%;
+    right: 20%;
+    z-index: -1;
+    width: 50%;
+    max-width: 70%;
+    height: 80%;
+    max-height: 81%;
+    font-size: 0.7vw;
+    text-align: center;
+}
+#TextBioCentral{
+    display: flex;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 1.2vw;
+}
+/***** 3e carré *****/
+#cont2{
+    position: absolute;
+    z-index: -1;
+    bottom: -20px;
+    right: 30px;
+    background-color: rgba(235, 230, 215, 0.89);
+    box-shadow: rgba(22, 22, 22, 0.63) 3px 4px 8px;
+    border: 2px solid #a35100;
+    width: 20%;
+    height:70%;
+    border-radius: 20px;
+    animation-duration: 0.8s;
+    transition: 0.8s;
+}
+
+#cont2 section{
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 5px;
+}
+/*** responsive ***/
+@media only screen and (min-width: 300px){
+
+    #cont2 section{
+        margin-top: -4px;
+        height: 70px;
+    }
+
+    .progress{
+        height: 1.5px !important;
+        margin-bottom: -2px;
+    }
+    .progress-bar.progress-bar-striped.progress-bar-animated{
+        height: 100%;
+        width: 100%;
+        font-size: 0.3vw!important;
+    }
+
+    .bar img{
+        width: 5px;
+        height: 5px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #TexteTechno{
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 600px){
+
+    #cont2 section{
+        height: 50%;
+        font-size: 5px;
+        margin-top: 1px;
+    }
+    .progress{
+        height: 5px !important;
+        font-size: 5px;
+        margin-bottom: 2px;
+    }
+
+    .progress-bar.progress-bar-striped.progress-bar-animated{
+        height: 100%;
+        width: 100%;
+        font-weight: bolder;
+        font-size: 0.4vw!important;
+    }
+    .bar img{
+        box-shadow: rgba(22, 22, 22, 0) 1px 1px 1px !important;
+        width: 18px;
+        height: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: -2px;
+    }
+
+    #TexteTechno{
+        font-size: 0.3vw;
+        display: initial;
+
+    }
+}
+
+@media only screen and (min-width: 900px){
+
+    #cont2 section{
+        font-size: small;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+    .bar img{
+        box-shadow: rgba(22, 22, 22, 0) 1px 1px 1px !important;
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2px;
+     }
+    .progress{
+        height: 40px !important;
+        font-size: 10px;
+    }
+
+    .progress-bar.progress-bar-striped.progress-bar-animated{
+        height: 100%;
+        width: 100%;
+        font-weight: bolder;
+        font-size: 0.5vw!important;
+    }
+}
+
+@media only screen and (min-width: 1600px){
+    #cont2 section{
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .progress{
+        height: 3.5em !important;
+        margin-bottom: -2px;
+    }
+    .progress-bar.progress-bar-striped.progress-bar-animated{
+        height: 100%;
+        width: 100%;
+        font-size: 0.6vw!important;
+    }
+
+    .bar img{
+        width: 35px!important;
+        height: 35px!important;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3px;
+    }
+    #TexteTechno{
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-width: 2000px){
+    #cont2 section{
+        font-size: 15px;
+        font-weight: bold;
+        margin-top: 25px;
+    }
+    .progress{
+        height: 200px !important;
+        font-size:2vw!important;
+    }
+    .progress-bar.progress-bar-striped.progress-bar-animated{
+        height: 100%;
+        width: 100%;
+    }
+    .bar img{
+        width: 40px!important;
+        height: 40px!important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #TexteTechno{
+        margin-top: 40px;
+    }
+}
+
+.bar{
+    margin-top: 5px;
+    font-size: 0.6vw;
+}
+
+
+/*** logos****/
+.bar img{
+    box-shadow: rgba(22, 22, 22, 0) 1px 1px 1px !important;
+    width: 10px;
+    height: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*** progress bar **/
+.progress-bar.progress-bar-striped.progress-bar-animated{
+    font-size: 5px;
+    height: 100%;
+    width: 100%;
+}
+
+.progress{
+    margin-top: 0px;
+    max-height: 10px;
+}
+
+#TexteTechno{
+    margin-top: 40px;
+    color: #a80000;
+    font-weight: bold;
+    font-size: 0.45vw;
+}
+
+/**** 4eme carré **/
+
+#cont3{
+background: url("../_assets/Card1/131.jpg");
+    background-size: cover;
+    position: absolute;
+    z-index: -2;
+    height: 100%;
+    max-width:100%!important;
+    opacity: 85%;
+}
+
+#boutonDL{
+    position: absolute;
+    z-index: 10;
+}
+
+
+/**** décaler bouton About a gauche sous la collone gauche
+      ajuster taille colonne
+      responsive
+ */
